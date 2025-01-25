@@ -1,54 +1,55 @@
-// Создание уникального ID пользователя
+// Генерация уникального ID для пользователя
 function generateUserId() {
-  return 'user-' + Math.random().toString(36).substring(2, 9);
+    return 'user-' + Math.random().toString(36).substr(2, 9);
 }
 
-// Получение или создание ID пользователя
+// Проверка и сохранение ID пользователя
 let userId = localStorage.getItem('userId');
 if (!userId) {
-  userId = generateUserId();
-  localStorage.setItem('userId', userId);
+    userId = generateUserId();
+    localStorage.setItem('userId', userId);
 }
 document.getElementById('user-id').textContent = userId;
 
-// Рендер шахматной доски
-function renderChessBoard() {
-  const board = document.getElementById('chess-board');
-  for (let i = 0; i < 64; i++) {
-      const cell = document.createElement('div');
-      cell.classList.add('cell');
-      if (Math.floor(i / 8) % 2 === 0) {
-          cell.style.backgroundColor = i % 2 === 0 ? '#f0d9b5' : '#b58863';
-      } else {
-          cell.style.backgroundColor = i % 2 === 0 ? '#b58863' : '#f0d9b5';
-      }
-      board.appendChild(cell);
-  }
-}
-renderChessBoard();
+// Создание шахматной доски
+function createChessBoard() {
+    const board = document.getElementById('chess-board');
+    board.innerHTML = ''; // Очистить доску, если уже есть
+    const rows = 8;
+    const cols = 8;
 
-// Инициализация простого чата
-const messages = document.getElementById('messages');
+    for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
+            const cell = document.createElement('div');
+            cell.classList.add('cell');
+            board.appendChild(cell);
+        }
+    }
+}
+createChessBoard();
+
+// Простая логика для чата
 const chatInput = document.getElementById('chat-input');
 const sendMessageButton = document.getElementById('send-message');
+const messages = document.getElementById('messages');
 
 sendMessageButton.addEventListener('click', () => {
-  const message = chatInput.value.trim();
-  if (message) {
-      const newMessage = document.createElement('div');
-      newMessage.textContent = `${userId}: ${message}`;
-      messages.appendChild(newMessage);
-      chatInput.value = '';
-      messages.scrollTop = messages.scrollHeight;
-  }
+    const message = chatInput.value.trim();
+    if (message) {
+        const newMessage = document.createElement('div');
+        newMessage.textContent = `${userId}: ${message}`;
+        messages.appendChild(newMessage);
+        chatInput.value = '';
+        messages.scrollTop = messages.scrollHeight; // Прокрутка вниз
+    }
 });
 
-// Поиск друга (пока просто выводит ID друга)
-document.getElementById('start-game').addEventListener('click', () => {
-  const friendId = document.getElementById('friend-id').value.trim();
-  if (friendId) {
-      alert(`Игра с другом с ID: ${friendId} начинается! (но логика пока не добавлена)`);
-  } else {
-      alert('Введите ID друга!');
-  }
+// Поиск друга (заглушка)
+document.getElementById('connect-friend').addEventListener('click', () => {
+    const friendId = document.getElementById('friend-id').value.trim();
+    if (friendId) {
+        alert(`Connecting to friend with ID: ${friendId}`);
+    } else {
+        alert('Please enter a friend ID!');
+    }
 });
