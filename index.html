@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000000">
+  <link rel="manifest" href="manifest.json">
+  <title>Chess PWA</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin: 0; padding: 0; }
+    .container { max-width: 600px; margin: 20px auto; }
+    #board { width: 100%; max-width: 400px; margin: 0 auto; }
+    #chat { height: 150px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; margin-top: 10px; }
+    input, button { padding: 10px; margin: 5px; }
+    .hidden { display: none; }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/1.0.0/chess.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Chess Game</h1>
+    <div id="auth" class="hidden">
+      <p>Your ID: <span id="userId"></span></p>
+      <input type="text" id="opponentId" placeholder="Enter opponent ID">
+      <button onclick="findGame()">Find Game</button>
+    </div>
+    <div id="game" class="hidden">
+      <div id="board"></div>
+      <div id="chat"></div>
+      <input type="text" id="message" placeholder="Type a message">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
