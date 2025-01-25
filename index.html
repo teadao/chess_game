@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="main.js"></script>
+</head>
+<body>
+    <h1>Онлайн шахматы</h1>
+
+    <!-- Отображение ID -->
+    <div id="user-info">
+        <p>Ваш ID: <span id="user-id">Загрузка...</span></p>
+    </div>
+
+    <!-- Форма поиска друга -->
+    <div id="find-friend">
+        <input type="text" id="friend-id" placeholder="Введите ID друга">
+        <button id="start-game">Начать игру</button>
+    </div>
+
+    <!-- Поле игры -->
+    <div id="chess-board"></div>
+
+    <!-- Чат -->
+    <div id="chat">
+        <h3>Чат</h3>
+        <div id="messages"></div>
+        <input type="text" id="chat-input" placeholder="Напишите сообщение">
+        <button id="send-message">Отправить</button>
+    </div>
+</body>
+</html>
