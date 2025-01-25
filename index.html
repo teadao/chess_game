@@ -8,28 +8,28 @@
     <script defer src="main.js"></script>
 </head>
 <body>
-    <h1>Онлайн шахматы</h1>
+    <h1>Chess Game</h1>
 
-    <!-- Отображение ID -->
+    <!-- Показ ID пользователя -->
     <div id="user-info">
-        <p>Ваш ID: <span id="user-id">Загрузка...</span></p>
+        <p>Your ID: <span id="user-id">Loading...</span></p>
     </div>
 
-    <!-- Форма поиска друга -->
-    <div id="find-friend">
-        <input type="text" id="friend-id" placeholder="Введите ID друга">
-        <button id="start-game">Начать игру</button>
+    <!-- Поле для поиска друга -->
+    <div id="friend-search">
+        <input type="text" id="friend-id" placeholder="Enter Friend's ID">
+        <button id="connect-friend">Connect</button>
     </div>
 
-    <!-- Поле игры -->
+    <!-- Шахматная доска -->
     <div id="chess-board"></div>
 
     <!-- Чат -->
     <div id="chat">
-        <h3>Чат</h3>
+        <h2>Chat</h2>
         <div id="messages"></div>
-        <input type="text" id="chat-input" placeholder="Напишите сообщение">
-        <button id="send-message">Отправить</button>
+        <input type="text" id="chat-input" placeholder="Type a message">
+        <button id="send-message">Send</button>
     </div>
 </body>
 </html>
